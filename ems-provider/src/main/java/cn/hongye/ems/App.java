@@ -1,4 +1,4 @@
-package cn.hongye;
+package cn.hongye.ems;
 
 /**
  * Hello world!

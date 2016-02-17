@@ -1,4 +1,4 @@
-package cn.hongye;
+package cn.hongye.ems;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
