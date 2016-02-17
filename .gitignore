@@ -1,3 +1,6 @@
 /.settings/
 /.project
 *.classpath
+/ems-provider/*.project
+/ems-api/*.project
+/ems-admin/*.project
