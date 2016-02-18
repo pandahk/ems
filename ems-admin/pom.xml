@@ -218,6 +218,12 @@
 				<groupId>org.codehaus.jackson</groupId>
 				<artifactId>jackson-mapper-asl</artifactId>
 			</dependency>
+			<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		
 	</dependencies>
 	<build>
 		<finalName>ems-admin</finalName>
@@ -230,7 +236,7 @@
 					<requestLog implementation="org.mortbay.jetty.NCSARequestLog">
 						<append>true</append>
 					</requestLog>
-					<contextPath>/</contextPath>
+					<contextPath>/ems-admin</contextPath>
 				</configuration>
 			</plugin>
 			<plugin>

@@ -17,24 +17,34 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd"
 	default-lazy-init="false">
 	<description>Spring公共配置 </description>
-	<context:property-placeholder location="classpath:application.properties"/>
+	<!-- <context:property-placeholder location="classpath:application.properties"/> -->
 
 	
 	<context:annotation-config />
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-	<context:component-scan base-package="cn.hongye">
+	<context:component-scan base-package="cn.hongye.ems">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
 	<aop:aspectj-autoproxy />
+	
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="fileEncoding" value="utf-8" />
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+	</bean>
 	<!-- Jpa Entity Manager 配置 -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
-		<property name="packagesToScan" value="cn.hongye" />
+		<property name="packagesToScan" value="cn.hongye.ems" />
 		<property name="jpaProperties">
 			<props>
 				<!-- 命名规则 My_NAME->MyName -->
@@ -60,7 +70,7 @@
 	
 
 	<!-- Spring Data Jpa配置 -->
-	<jpa:repositories base-package="cn.hongye"
+	<jpa:repositories base-package="cn.hongye.ems"
 		transaction-manager-ref="transactionManager"
 		entity-manager-factory-ref="entityManagerFactory" />
 
@@ -75,26 +85,37 @@
 
 	
 	
-		<!-- Tomcat JDBC连接池 -->
-		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
-			destroy-method="close">
-			<property name="driverClassName" value="${jdbc.driver}" />
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
-			<property name="defaultAutoCommit" value="false" />
-			<property name="maxActive" value="${jdbc.pool.maxActive}" />
-			<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
-			<property name="initialSize" value="${jdbc.pool.initialSize}" />
-			<property name="minIdle" value="${jdbc.pool.minIdle}" />
-			<!-- 运行"检查已经超时/废弃的连接"的线程频率(毫秒/次),默认为5000/5秒 -->
-			<property name="timeBetweenEvictionRunsMillis" value="5000" />
-			<!-- 连接超时的最小时间(单位:毫秒,默认为60000/60秒) -->
-			<property name="minEvictableIdleTimeMillis" value="6000" />
-			<!-- 指明是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个 -->
-			<property name="testOnBorrow" value="true" />
-			<property name="validationQuery" value="select 1 from dual" />
-		</bean>
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<!-- MySQL数据库驱动类 -->
+		<property name="driverClass" value="${ems.driverClass}" />
+		<!-- MySQL数据库连接url -->
+		<property name="jdbcUrl"   value="${ems.jdbcUrl}" />
+		<!--MySQL数据库的用户名 -->
+		<property name="user" value="${ems.user}" />
+		<!--MySQL数据库 密码 -->
+		<property name="password" value="${ems.password}" />
+		<!--连接池最小连接数 -->
+		<property name="minPoolSize" value="${ems.minPoolSize}" />
+		<!--连接池最大连接数 Default: 15 -->
+		<property name="maxPoolSize" value="${ems.maxPoolSize}" />
+		<!--初始化连接数（取值在minPoolSize与maxPoolSize之间 Default:3） -->
+		<property name="initialPoolSize" value="${ems.initialPoolSize}" />
+		<!--最大空闲时间（60秒内未使用则连接被丢弃，若为0则永不丢弃 Default:0） -->
+		<property name="maxIdleTime" value="${ems.maxIdleTime}" />
+		<!--当连接池中的连接耗尽时c3p0一次同时获取的连接数 Default:3 -->
+		<property name="acquireIncrement" value="${ems.acquireIncrement}" />
+		<!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的 statements属于单个connection而不是整个连接池。 所以设置这个参数需要考虑到多方面 的因素。如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default:0 -->
+		<property name="maxStatements" value="${ems.maxStatements}" />
+		<!--每60秒检查所有连接池中的空闲连接 Default:0 -->
+		<property name="idleConnectionTestPeriod" value="${ems.idleConnectionTestPeriod}" />
+		<!--定义在从数据库获取新连接失败后重复尝试的次数 Default:30 -->
+		<property name="acquireRetryAttempts" value="${ems.acquireRetryAttempts}" />
+		<!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。 如果设为true，那么在尝试 获取连接失败后该数据源将申明已断开并永久关闭。Default:false -->
+		<property name="breakAfterAcquireFailure" value="${ems.breakAfterAcquireFailure}" />
+		<!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的 时候都将校验其有效性。 建议使用idleConnectionTestPeriod或automaticTestTable等方法来提升连接测试的性能。Default:false -->
+		<property name="testConnectionOnCheckout" value="${ems.testConnectionOnCheckout}" />
+	</bean>
 	
 
 

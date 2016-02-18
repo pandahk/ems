@@ -12,9 +12,9 @@
   
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <encoding>UTF-8</encoding>
-    <file>/data/tsjinrong/logs/auth-esb/auth-esb.log</file>
+    <file>/data/hongye/logs/ems-admin/ems-admin.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-    <fileNamePattern>/data/tsjinrong/logs/auth-esb/auth-esb.log.%d{yyyy-MM-dd}</fileNamePattern>
+    <fileNamePattern>/data/hongye/logs/ems-admin/ems-admin.log.%d{yyyy-MM-dd}</fileNamePattern>
     <MaxHistory>30</MaxHistory></rollingPolicy>
     <layout class="ch.qos.logback.classic.PatternLayout">
       <pattern>${default_pattern}</pattern>
