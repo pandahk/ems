@@ -1,0 +1,229 @@
+body,html{
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+}
+
+*{
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.row{
+	overflow: auto;
+	margin-top: 10px ;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	min-height: 1px;
+	position: relative;
+}
+.row .textbox{
+	float: left;
+	-moz-border-radius:0px !important;
+	border-radius:0px !important;
+	-webkit-border-radius:0px !important;
+	border: 1px solid #8A8585 ;
+}
+.row .combo {
+	border: 1px solid #8A8585 !important;
+}
+.col-w-1,
+.col-w-2,
+.col-w-3,
+.col-w-4,
+.col-w-5,
+.col-w-6,
+.col-w-7,
+.col-w-8,
+.col-w-9,
+.col-w-10,
+.col-w-11,
+.col-w-12{
+	float: left;
+	position: relative;
+    min-height: 1px;
+	text-align:right;
+	line-height: 25px;
+	padding-right: 10px; 
+}
+
+
+.col-w-12 {
+  width: 100%;
+}
+.col-w-11 {
+  width: 91.66666667%;
+}
+.col-w-10 {
+  width: 83.33333333%;
+}
+.col-w-9 {
+  width: 75%;
+}
+.col-w-8 {
+  width: 66.66666667%;
+}
+.col-w-7 {
+  width: 58.33333333%;
+}
+.col-w-6 {
+  width: 50%;
+}
+.col-w-5 {
+  width: 41.66666667%;
+}
+.col-w-4 {
+  width: 33.33333333%;
+}
+.col-w-3 {
+  width: 25%;
+}
+.col-w-2 {
+  width: 16.66666667%;
+}
+.col-w-1 {
+  width: 8.33333333%;
+}
+div{
+	display: block;
+}
+input[type="text"]{
+	float:left;
+	height: 25px;
+}
+select{
+	float: left;
+	height: 25px;
+}
+label{
+	display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    overflow: auto;
+    text-align: left;
+}
+
+.form-group{
+	padding-right: 60px;
+	line-height: 34px;
+}
+.form-control{
+	display: block;
+    width: 80%;
+    height: 23px;
+}
+.btn {
+    cursor: pointer;
+    vertical-align: middle;
+    padding: 2px 8px;
+    border: 1px solid transparent;
+    position: relative;
+    display: inline-block;
+    color: #444;
+    background-color: #fff;
+    border-color: #ccc;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,.05);
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+
+.backgline{
+	 background-image: url(../images/u319_line.png);
+	 background-repeat: repeat-x;
+	 background-position: 5px 5px;
+	 width: 100%;
+}
+.hashouse{
+	width: 90px;
+	padding: 0 2px 0 2px;
+	background-color: #fff;
+	z-index: 2
+}
+.hashouse input{
+	margin-top: 0;
+}
+
+.text-check-o{
+	float: left;
+	background-color: #fff;
+	position: relative;
+	text-indent: 25px;
+}
+.text-check-o input[type="checkBox"]{
+	position: absolute;
+	top: -1px;
+	left: 5px;
+}
+.text-o{
+	width: auto;
+	height: auto;
+	overflow: auto;
+	font-family: "微软雅黑";
+
+}
+.text-check{
+	text-indent: 21px;
+	text-align: left;
+}
+.text-check input[type="checkBox"]{
+	position: absolute;
+	top: 2px;
+	left:0px
+}
+
+.row .l-btn-icon{
+width: 60px !important;
+}
+
+.row .l-btn-empty{
+	margin:0 !important;
+}
+.row .l-btn-left .l-btn-empty{
+	background-color: #f1f1f1;
+	width: 72px !important
+}
+.row .l-btn-icon{
+	width: 66px !important
+}
+.row .col-w-1 .l-btn-left .l-btn-empty{
+	background-color: #f6f6f6;
+	width: 33px !important
+} 
+.row .col-w-1 .l-btn-icon{
+	width: 40px !important
+}
+.row .textbox-invalid {
+border-color: #AA5757;
+background-color: #fff3f3;
+}
+.addOtherContactsOper{
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	color: #258dfd;
+	font-weight: bold;
+	margin:0 auto;
+	background-color: #f5f5f5;
+	border: 1px solid #bbb;
+	cursor: pointer;
+	text-align: center;
+	font-family: '微软雅黑';
+}
+.addOtherContactsOper:hover{
+	border-color: #258dfd;
+}
+.btn-remov{
+	border: solid 1px #e01212;
+	color: #e01212;
+	width: 23px;
+	height: 23px;
+	float:left; 
+	text-align: center;
+	margin-left: 50px;
+	cursor: pointer;
+}
+.nowrap{
+	white-space: nowrap;
+}

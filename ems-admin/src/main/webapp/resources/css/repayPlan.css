@@ -1,0 +1,71 @@
+body {
+	font-size: 62.5%;
+	width: 100%;
+}
+ol{
+	list-style-type:demical;
+}
+ol li{
+	list-style-position:outside;
+}
+table.gridtable {
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+.line-height-15 {
+	line-height: 1.5em;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+.padding-left-10 {
+	padding-left: 10px;
+}
+.padding-left-20 {
+	padding-left: 20px;
+}
+.padding-hor-15 {
+	padding: 0 15px;
+}
+
+.payment-wrapper {
+	margin: 2em;
+}
+
+ol.payment-list {
+	padding: 0 4em;
+}
+ol.payment-list li {
+	padding: 5px;
+	line-height: 1.5em;
+}
+ol.payment-list li .payment-account {
+	padding: 5px;
+}
+ol.payment-list li .payment-signature {
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-left: 20px;
+}

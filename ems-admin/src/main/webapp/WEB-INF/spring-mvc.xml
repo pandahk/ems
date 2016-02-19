@@ -41,16 +41,16 @@
 	<mvc:view-controller path="/" view-name="redirect:/home" />
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<!-- <mvc:resources location="/static/" mapping="/static/**" /> -->
+	 <mvc:resources location="/resources/" mapping="/resources/**" /> 
 	<!-- 将Controller抛出的异常转到特定View, 保持SiteMesh的装饰效果 -->
-	<!-- <bean
+	 <bean
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.Throwable">/error/500</prop>
 			</props>
 		</property>
-	</bean> -->
+	</bean> 
 
 
 	

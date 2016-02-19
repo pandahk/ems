@@ -1,0 +1,8 @@
+﻿html,body{color:#333}
+html{font-size:100%;background:#eaeaea}
+body{font:normal normal 14px/1.4 arial,tahoma,sans-serif}
+audio {
+    width: 80%;
+    height: 30px;
+    text-align: left;
+}
