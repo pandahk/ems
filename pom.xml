@@ -14,5 +14,7 @@
     <module>ems-admin</module>
     <module>ems-api</module>
     <module>ems-provider</module>
+    <module>ems-pro</module>
+    <module>ems-easydemo</module>
   </modules>
 </project>
