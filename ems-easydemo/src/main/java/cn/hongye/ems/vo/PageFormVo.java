@@ -13,7 +13,6 @@ public class PageFormVo implements Pageable {
 	private String sort = "id";
 	private String order = "desc";
 	private Sort sortSet;
-	private List data = new ArrayList<>();
 	
 	public PageFormVo() {
 	}
@@ -100,11 +99,4 @@ public class PageFormVo implements Pageable {
 		return hasPrevious() ? new PageFormVo(page - 2, rows, getSort()) : this;
 	}
 
-	public List getData() {
-		return data;
-	}
-
-	public void setData(List data) {
-		this.data = data;
-	}
 }

@@ -1,4 +1,4 @@
-package cn.hongye.ems.mode;
+package cn.hongye.ems.model;
 
 import java.io.Serializable;
 import java.util.Date;
