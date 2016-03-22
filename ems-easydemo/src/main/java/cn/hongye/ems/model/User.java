@@ -26,6 +26,11 @@ public class User implements Serializable{
 //	private Date createTime;
 //	private Date updateTime;
 	public User(){}
+	public User(Integer id, String name){
+		this.id = id;
+		this.name = name;
+		
+	}
 	public User(Integer id, String name, String password, String sex, String isValid, String mobile, String email
 			) {
 		super();

@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div,img,input,form,h1,ul,li{ padding:0; margin: 0;}
+html{ height:100%; width:100%; overflow:hidden;}
+input:focus,a:focus{ outline:none;}
+ul, ol, dl{ list-style:none; display:block;}
+dd, dt, li{ display:block;}
+body{ height: 100%;}
+#wrap{ width: 100%; height: 100%; overflow: hidden; background: url(../../images2/login_bg.jpg)  no-repeat  top center; background-size:cover; position:relative;}
+.login{ width: 390px; position: absolute; left: 50%; top:50%; margin-left: -195px; margin-top: -141px;}
+.login h1{ display: block; overflow: hidden; margin-bottom:25px; height:47px; width: 203px; background:url(../../images2/login_icon.png) no-repeat left -68px;}
+.login ul{width: 100%; background: url(../../images2/login_ul.png) no-repeat center; padding:40px 0 20px; }
+.login ul li{position:relative; display:block; overflow: hidden; padding-bottom: 20px;}
+.login ul li input{ background:url(../../images2/login_icon.png) no-repeat left top; display: block; overflow: hidden; border:none; width: 212px; height: 32px; margin: 0 auto; line-height: 30px; padding:0 15px; font-size: 14px;}
+.login ul li input.login_btn{color:#fff; font-size: 14px; width: 242px; padding:0px; cursor: pointer; background-position: left -34px;}
+.login ul li label{position: absolute; left:320px; font-size:12px; color:#ff0000; top:0px; line-height:32px;}

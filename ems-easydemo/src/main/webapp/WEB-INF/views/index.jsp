@@ -1,4 +1,5 @@
 <%@ include file="common/common.jsp"%> 
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,6 +19,7 @@ ${ctx}
     collapsible:true,minimizable:true,maximizable:true">
     <p>panel content.</p>
     <p>panel content.</p>
+    哈哈
 </div>
 
 
