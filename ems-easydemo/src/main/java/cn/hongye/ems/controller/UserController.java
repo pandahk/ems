@@ -1,4 +1,4 @@
-package cn.hongye.ems.Controller;
+package cn.hongye.ems.controller;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -28,13 +28,9 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> findUser(PageFormVo vo){
 		
-//		List employees = new ArrayList<User>();
-//        employees.add(new User(1, "张三"));
-//        employees.add(new User(2, "李四"));
-//        employees.add(new User(3, "王二麻"));
-//        Map<String, Object> map = new LinkedHashMap<String,Object>();
-//        map.put("total", employees.size());
-//        map.put("rows", employees);
+//		List<User> ll=new ArrayList<>();
+//		ll.add(new User("zz","zz2"));
+//		ll.add(new User("zz22","zz3"));
 		  Page<User> page=userService.queryBankInfoByPage(vo);
 		  Map<String, Object> map = new LinkedHashMap<String,Object>();
 	      map.put("total", page.getTotalElements());

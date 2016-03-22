@@ -12,7 +12,11 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+	<!-- 防止内存泄露 -->   
+	 <listener>   
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>   
+	</listener> 
+
 	<filter>
 		<filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>

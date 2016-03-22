@@ -47,8 +47,7 @@ function loadData() {
         rownumbers : true,
         singleSelect : true,
         columns:[[   
-            {field:'name',title:'姓名',width:50},
-            {field:'sex',title:'gender',width:50}
+            {field:'account',title:'姓名',width:50}
            
         ]]
     }); 
