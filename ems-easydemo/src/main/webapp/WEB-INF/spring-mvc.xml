@@ -35,7 +35,7 @@
 			<bean
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="objectMapper">
-					<bean class="cn.hongye.ems.JpaObjectMapper">
+					<bean class="cn.hongye.ems.jpa.JpaObjectMapper">
 					</bean>
 				</property>
 				<property name="prettyPrint" value="true" />

@@ -1,4 +1,4 @@
-package cn.hongye.ems;
+package cn.hongye.ems.jpa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
