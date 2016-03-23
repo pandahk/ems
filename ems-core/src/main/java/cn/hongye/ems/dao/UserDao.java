@@ -12,6 +12,6 @@ import cn.hongye.ems.util.ValidResult;
 public interface UserDao extends PagingAndSortingRepository<User, Long>, JpaSpecificationExecutor<User>{
 
 	
-	//ValidResult findUserByUserNameAndPassword(String username,String password);
+	User findUserByAccountAndPassword(String account,String password);
 	
 }

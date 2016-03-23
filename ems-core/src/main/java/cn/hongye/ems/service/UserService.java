@@ -8,6 +8,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.hongye.ems.dao.UserDao;
 import cn.hongye.ems.model.User;
+import cn.hongye.ems.util.ValidResult;
 import cn.hongye.ems.vo.PageFormVo;
 
 @Service
@@ -39,5 +41,20 @@ public class UserService {
 		}, page);
 
 	}
+	
+	
+	public ValidResult  validUser(String account,String password){
+		User uu=userDao.findUserByAccountAndPassword(account, password);
+		if (uu==null) 
+			return ValidResult.USERNAME_NOT;
+		return ValidResult.OK;
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 }

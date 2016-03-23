@@ -19,12 +19,11 @@ ${ctx}
     collapsible:true,minimizable:true,maximizable:true">
     <p>panel content.</p>
     <p>panel content.</p>
-    哈哈
 </div>
 
 
 
-
+主页
 
 
 

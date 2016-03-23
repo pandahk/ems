@@ -13,7 +13,7 @@
 			<h1></h1>
 			<form id="loginForm" action="login" method="get">
 			<ul>
-				<li><input type="text" name="username" placeholder="Username"></li>
+				<li><input type="text" name="account" placeholder="account"></li>
 				<li><input type="password" id="pwd_inp" name="password" placeholder="Password"></li>
 				<li><input class="login_btn" type="button" onclick="validateUser()" value="Login"></li>
 			</ul>
@@ -22,55 +22,61 @@
 	</div>
 	
 	 <script>
-    $().ready(function(){
-    	$("#loginForm").validate({
-    			  rules:{
-    				username:{  required: true},
-    				password:{  required: true}
-    			   },
-				   messages: {
-					username: { required: "请输入用户"},
-					password:{  required: "请输入密码" }
-				   }
-    			});
-    			
-    			 $("#pwd_inp").keydown(function(e){ 
-				        var curKey = e.which; 
-				        if(curKey == 13){ 
-				            validateUser();
-				        } 
-				    }); 
-    })
-   
-    function  validateUser(){
-    	var validResult =$('#loginForm').valid();
-    	if(!validResult){
-    		return;
-    	}
-    	
-    	$.ajax({
-    		   type: "GET",
-    		   url: "${ctx}/login/validate",
-    		   data: $('#loginForm').serialize(),
-    		   success: function(result){
-    			   if(result.code=='0000'){
-    				   window.location="${request.contextPath}"
-    			   }else{
-    			   	   if(typeof(result.code)=='undefined'){
-    			   	   		alert("登陆失败");
-    			   	   }else{
-    			   	   		alert("用户名和密码不匹配");
-    			   	   }
-    			   }
-    		   }
-    		});
-    }
   
-	
-       $(function(){
-       	  //placeholder 兼容ie
-	        $(".login input[type=text],.login input[type=password]").placeholder();
-       })
-	</script>
+			$().ready(function() {
+				$("#loginForm").validate({
+					rules : {
+						account : {
+							required : true
+						},
+						password : {
+							required : true
+						}
+					},
+					messages : {
+						account : {
+							required : "请输入用户"
+						},
+						password : {
+							required : "请输入密码"
+						}
+					}
+				});
+
+				$("#pwd_inp").keydown(function(e) {
+					var curKey = e.which;
+					if (curKey == 13) {
+						validateUser();
+					}
+				});
+			})
+
+			function validateUser() {
+				var validResult = $('#loginForm').valid();
+				if (!validResult) {
+					return;
+				}
+
+				$.ajax({
+					type : "GET",
+					url : "${ctx}/login/validate",
+					data : $('#loginForm').serialize(),
+					success : function(data) {
+						var data = eval("(" + data + ")");
+						if (data.code == 1) {
+							window.location = "${ctx}/home"
+						} else {
+							alert("用户名和密码不匹配");
+						}
+					}
+				});
+			}
+
+			$(function() {
+				//placeholder 兼容ie
+				$(".login input[type=text],.login input[type=password]")
+						.placeholder();
+			})
+		</script>
 </body>
 </html>
