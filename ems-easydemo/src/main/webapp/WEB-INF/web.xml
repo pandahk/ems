@@ -6,7 +6,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath*:/applicationContext.xml
+			classpath*:spring/applicationContext.xml,classpath*:spring/security.xml
 		</param-value>
 	</context-param>
 	<listener>
@@ -60,7 +60,21 @@
 	<session-config>
 		<session-timeout>20</session-timeout>
 	</session-config>
-	
+	<filter>
+	<filter-name>securityFilter</filter-name>
+	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	<init-param>
+		<param-name>targetBeanName</param-name>
+		<param-value>springSecurityFilterChain</param-value>
+	</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
 	<welcome-file-list>
 		<welcome-file>/</welcome-file>
 	</welcome-file-list>

@@ -22,7 +22,7 @@ import cn.hongye.ems.constant.YesOrNo;
 
 @Entity
 @Table(name="ems_user")
-public class User implements Serializable{
+public class EUser implements Serializable{
 	
 	/**
 	 * 
@@ -42,8 +42,8 @@ public class User implements Serializable{
 	private Date createTime;
 	private Date updateTime;
 //	private EmsOrganization emsOrganization;
-	public User(){}
-	public User(String account,String userName){
+	public EUser(){}
+	public EUser(String account,String userName){
 		this.account=account;
 		this.userName=userName;
 	}

@@ -9,7 +9,6 @@
   </parent>
   <artifactId>ems-core</artifactId>
   <name>ems-core</name>
-  <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -20,7 +19,19 @@
 	      <artifactId>common-utils</artifactId>
 	      <version>0.0.1-SNAPSHOT</version>
 	   </dependency>
-	
+	<!-- 要具类，支持配置热加载 -->
+			<dependency>
+				<groupId>net.wicp.tams</groupId>
+				<artifactId>commons</artifactId>
+				<version>0.5.2-SNAPSHOT</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+				
+			</dependency>
 		<!-- 测试工具 -->
 		<dependency>
 			<groupId>junit</groupId>

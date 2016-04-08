@@ -273,7 +273,7 @@
 		<!-- JSON end -->
 	</dependencies>
 	<build>
-		<finalName>ems-admin</finalName>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>

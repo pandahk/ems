@@ -6,25 +6,15 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-	<!-- 自动扫描且只扫描@Controller -->
-<!-- 	<context:component-scan base-package="cn.hongye.ems"
+<!-- 自动扫描且只扫描@Controller -->
+	<context:component-scan base-package="cn.hongye.ems"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 		<context:include-filter type="annotation"
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
-	</context:component-scan> -->
+	</context:component-scan>
 
-	
-	<!-- <bean id="mappingJacksonHttpMessageConverter"
-	        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-	        <property name="supportedMediaTypes">
-	            <list>
-	                <value>application/json;charset=UTF-8</value>
-	            </list>
-	        </property>
-	    </bean> -->
-    
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
@@ -51,9 +41,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->
-	<mvc:default-servlet-handler />
-
 	<!-- 定义首页 -->
 	<mvc:view-controller path="/" view-name="redirect:/home" />
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
@@ -69,6 +56,15 @@
 		</property>
 	</bean> 
 
+	<!-- spring mvc实现上传需添加该操作类 依赖包commons-fileupload-1.2.2.jar commons-io-2.0.1.jar -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 指定所上传文件的总大小不能超过5000KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+		<property name="maxUploadSize" value="52428800" />
+		<property name="maxInMemorySize">
+			<value>2048</value>
+		</property>
+	</bean>
 
 	
 </beans>

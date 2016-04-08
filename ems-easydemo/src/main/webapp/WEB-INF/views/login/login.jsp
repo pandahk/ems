@@ -11,11 +11,11 @@
 	<div id="wrap">
 		<div class="login">
 			<h1></h1>
-			<form id="loginForm" action="login" method="get">
+			<form  action="j_spring_security_check" method="post">
 			<ul>
-				<li><input type="text" name="account" placeholder="account"></li>
-				<li><input type="password" id="pwd_inp" name="password" placeholder="Password"></li>
-				<li><input class="login_btn" type="button" onclick="validateUser()" value="Login"></li>
+				<li><input type="text" name="j_username" ></li>
+				<li><input type="password" id="pwd_inp" name="j_password" ></li>
+				<li><input class="login_btn" type="submit" onclick="validateUser()" value="Login"></li>
 			</ul>
 			</form>
 		</div>

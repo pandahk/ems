@@ -20,8 +20,7 @@
 	<!-- <context:property-placeholder location="classpath:application.properties"/> -->
      
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-	<context:component-scan base-package="cn.hongye.ems" />
-	
+	<context:component-scan base-package="cn.hongye.ems"/>
 	<aop:aspectj-autoproxy />
 	
 	<bean id="propertyConfigurer"
